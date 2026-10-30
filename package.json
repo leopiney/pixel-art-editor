@@ -1,0 +1,12 @@
+{
+  "name": "pixel-art-editor",
+  "version": "1.0.0",
+  "description": "A small local pixel art editor with PNG export",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

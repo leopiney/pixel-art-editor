@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pixel Art Editor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Pixel Art Editor</h1>
+    <div class="history">
+      <button id="undo" title="Undo (Ctrl/Cmd+Z)" disabled>↶ Undo</button>
+      <button id="redo" title="Redo (Ctrl/Cmd+Shift+Z or Ctrl+Y)" disabled>↷ Redo</button>
+    </div>
+  </header>
+
+  <main>
+    <aside class="panel">
+      <section>
+        <h2>Tools</h2>
+        <div class="tools">
+          <button data-tool="pencil" title="Pencil (B)">✏️ Pencil <kbd>B</kbd></button>
+          <button data-tool="eraser" title="Eraser (E)">🩹 Eraser <kbd>E</kbd></button>
+          <button data-tool="fill" title="Fill (G)">🪣 Fill <kbd>G</kbd></button>
+          <button data-tool="picker" title="Color picker (I)">💧 Pick color <kbd>I</kbd></button>
+        </div>
+      </section>
+
+      <section>
+        <h2>Color</h2>
+        <div class="current-color">
+          <input type="color" id="color" value="#000000" title="Choose any color">
+          <span id="color-hex">#000000</span>
+        </div>
+        <div id="palette" class="palette"></div>
+      </section>
+
+      <section>
+        <h2>Canvas</h2>
+        <form id="resize-form" class="size">
+          <label>W <input type="number" id="width" min="1" max="128" value="16"></label>
+          <span>×</span>
+          <label>H <input type="number" id="height" min="1" max="128" value="16"></label>
+          <button type="submit">Resize</button>
+        </form>
+        <div class="presets">
+          <button data-size="8">8</button>
+          <button data-size="16">16</button>
+          <button data-size="32">32</button>
+          <button data-size="64">64</button>
+        </div>
+        <label class="check"><input type="checkbox" id="grid" checked> Show grid <kbd>#</kbd></label>
+        <button id="clear" class="danger">Clear canvas</button>
+      </section>
+
+      <section>
+        <h2>Export</h2>
+        <label class="name">Name <input type="text" id="name" value="sprite" spellcheck="false"></label>
+        <button id="export" class="primary">⬇ Export PNG</button>
+        <p class="hint" id="export-hint"></p>
+      </section>
+    </aside>
+
+    <div class="stage">
+      <canvas id="canvas"></canvas>
+      <div class="status" id="status"></div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
